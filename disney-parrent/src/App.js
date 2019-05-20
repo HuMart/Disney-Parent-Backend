@@ -1,15 +1,18 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Login } from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
 
 import './App.css';
 
-function App() {
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-       
-      </header>
-    </div>
-  );
+    <Router>
+      <div className="App">
+        <Route path="/login" component={Login}/>
+        <PrivateRoute exact path="/protected" component={ParentsList}/>
+      </div>
+    </Router>
+    );
 }
-
 export default App;
